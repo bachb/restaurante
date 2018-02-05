@@ -52,7 +52,7 @@ var _createClass = function() {
             r.open(o, i);
         });
         var r = new google.maps.InfoWindow({
-            content: '<h1 class="dancing-script black-text center subtitle">Delicias el Paisa</h1><p class="text-center medium">Restaurante</p><h3><i class="glyphicon glyphicon-earphone"></i> 313 2551075</h3>'
+            content: '<h1 class="dancing-script black-text center subtitle">{{ $restaurante->name }}</h1><p class="text-center black-text center medium">Restaurante</p><h3 class="black-text"><i class="glyphicon glyphicon-earphone center"></i> 313 2551075</h3>'
         });
         e.get(function(e) {
             var i = new google.maps.LatLng(e.lat, e.lng), r = new google.maps.LatLng(t.lat, t.lng);
@@ -71,7 +71,7 @@ var _createClass = function() {
             }, function(e, t) {
                 if (t === google.maps.DistanceMatrixStatus.OK) {
                     var n = e.rows[0].elements[0].duration.text;
-                    document.querySelector("#message").innerHTML = " \n\t\t\t\t\t\t\t\tEstás a " + n + ' de la mejor experiencia \n\t\t\t\t\t\t\t\tpara su paladar en <span class="dancing-script medium">\n\t\t\t\t\t\t\t\tDelicias el Paisa</span>\n\t\t\t\t\t\t\t';
+                    document.querySelector("#message").innerHTML = " \n\t\t\t\t\t\t\t\tEstás a " + n + ' de la mejor experiencia \n\t\t\t\t\t\t\t\tpara su paladar en <span class="dancing-script medium">\n\t\t\t\t\t\t\t\t{{ $restaurante->name }}</span>\n\t\t\t\t\t\t\t';
                 }
             });
         });

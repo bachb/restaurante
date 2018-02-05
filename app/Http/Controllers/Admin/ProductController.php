@@ -49,7 +49,8 @@ class ProductController extends Controller
     {        
         $product =Product::find($id);
         $categories = Category::all();
-        return view('admin.products.edit')->with(compact('product', 'categories'));//formulario de registro
+        $company =Company::find(1);
+        return view('admin.products.edit')->with(compact('product', 'categories', 'company'));//formulario de registro
     }
         public function update(Request $request, $id)
     {
@@ -104,12 +105,14 @@ class ProductController extends Controller
 
         if ($product->featured) {
             Product::where('id', $id)->update([
-            'featured' => false
+            'featured' => false,
+            'order' => null
             ]);
         }elseif (! $product->featured) {   
             if ($count < $lim) { 
 
                 $product->featured = true;
+                $product->order = $count +1;
                 $product->save();
                 $notification = $product->name. ' fué agregado como favorito.';
                 return back()->with(compact('notification'));
@@ -123,5 +126,5 @@ class ProductController extends Controller
         }
             
                 return back();
-    }            
+    }        
 }

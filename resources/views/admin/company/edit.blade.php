@@ -1,4 +1,6 @@
 @extends('layouts.admin')
+@section('name-rest', $company->name )
+
 @section('config-active', 'active')
 
 @section('content')

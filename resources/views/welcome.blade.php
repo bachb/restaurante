@@ -1,12 +1,4 @@
 @extends('layouts.app')
-<script type="text/javascript">
-$(window).load(function() {
-    $(".loader").fadeOut("slow");
-});
-</script>
-@foreach ($company as $restaurante)
- <title>{{ $restaurante->name }}</title>
-@endforeach
     <!--[if lt IE 9]>
     <p class="browserupgrade">
       Estas usando un navegador
@@ -18,6 +10,7 @@ $(window).load(function() {
       para una mejor experiencia
     </a>
     <![endif]-->
+      
     <div class="video-container">
       <video autoplay height="720" loop poster="{{ asset('videos/img/bbq.jpg') }}" width="1280">
         <source src="{{ asset('videos/mp4/bbq.mp4') }}" typ="video/mp4">
@@ -62,15 +55,7 @@ $(window).load(function() {
             <li><a href="{{ route('login') }}">Ingresar</a></li>
           @else
             <li>
-                <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                             document.getElementById('logout-form').submit();">
-                    Salir
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
+              <a href="{{ url('/home') }}"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
             </li>
           @endguest
         </ul>
@@ -115,16 +100,8 @@ $(window).load(function() {
                 <li><a href="{{ route('login') }}">Ingresar</a></li>
               @else
                 <li>
-                    <a href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                        Salir
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                </li>
+              <a href="{{ url('/home') }}"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+            </li>
               @endguest
             </ul>
           </nav>
@@ -229,13 +206,4 @@ $(window).load(function() {
       </div>
     </div>
     @endforeach
-    <script crossorigin="anonymous" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script>
-      window.jQuery || document.write("<script src='js/jquery-3.2.1.min.js'><\/script>")
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYJRlrlag1wwxCdQd3ZnluYUuNRPzLeeY"></script>
-    <script src="{{ asset('dist/maps.js' )}}"></script>
-    <script src="{{ asset('dist/form_object.js') }}"></script>
-    <script src="{{ asset('dist/main.js') }}"></script>
-    <script src="{{ asset('js/sweetalert2.min.js') }}"></script>
   </div>

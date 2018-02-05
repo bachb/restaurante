@@ -14,7 +14,7 @@ class CompanyController extends Controller
 	public function index()
     {
     	$products = Product::all();
-        $company = Company::all();
+        $company =Company::find(1);
     	return view('admin.company.config')->with(compact('products', 'company'));//listado
     }
     public function edit($id)

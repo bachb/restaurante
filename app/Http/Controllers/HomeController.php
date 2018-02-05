@@ -26,8 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::all();        
-        $company = Company::all();
+        $products = Product::orderBy('order', 'asc')->get();       
+        $company =Company::find(1);
         $categories = Category::all();
         return view('home')->with(compact('products', 'company', 'categories'));
     }

@@ -1,5 +1,6 @@
 @extends('layouts.admin')
-@section('menu-active', 'active')
+@section('name-rest', $company->name )
+@section('category-active', 'active')
 
 @section('content')
 <div class="container-fluid">

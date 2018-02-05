@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('name-rest', $company->name )
 @section('config-active', 'active')
 
 @section('content')
@@ -26,29 +27,25 @@
                     </div>
                     <div class="card-content">
                         <form>
-                            <div class="row">
-                                @foreach ($company as $restaurante)
+                            <div class="row">                               
                                 <div class="col-xs-12 col-sm-6 col-lg-8">                             
                                     <div class="form-group label-floating">
                                         <label class="control-label">Nombre del local</label>
-                                        <input type="text" class="form-control" value=" {{ $restaurante->name }} " disabled>
+                                        <input type="text" class="form-control" value=" {{ $company->name }} " disabled>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-lg-4">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Número de images destacadas</label>
-                                        <input type="text" class="form-control" value=" {{ $restaurante->limit }} " disabled>
+                                        <input type="text" class="form-control" value=" {{ $company->limit }} " disabled>
                                     </div>
-                                </div>
-                                @endforeach
-                                
+                                </div>                                
                             </div>
-                            @foreach ($company as $restaurante)
                             <div class="row">
                                 <div class="col-md-12">                                    
                                     <div class="form-group label-floating">
                                         <label class="control-label">Email</label>
-                                        <input type="text" class="form-control" value=" {{ $restaurante->email }} " disabled>
+                                        <input type="text" class="form-control" value=" {{ $company->email }} " disabled>
                                     </div>                                    
                                 </div>
                             </div>
@@ -56,7 +53,7 @@
                                 <div class="col-md-12">                                    
                                     <div class="form-group label-floating">
                                         <label class="control-label">Dirección</label>
-                                        <input type="text" class="form-control" value=" {{ $restaurante->direccion }} " disabled>
+                                        <input type="text" class="form-control" value=" {{ $company->direccion }} " disabled>
                                     </div>                                    
                                 </div>
                             </div>
@@ -64,13 +61,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Municipio</label>
-                                        <input type="text" class="form-control" value="{{ $restaurante->municipio }}" disabled>
+                                        <input type="text" class="form-control" value="{{ $company->municipio }}" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Departamento</label>
-                                        <input type="text" class="form-control" value="{{ $restaurante->departamento }}"disabled>
+                                        <input type="text" class="form-control" value="{{ $company->departamento }}"disabled>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +76,7 @@
                                     <label>Descripción corta del local</label>
                                     <div class="form-group label-floating">
                                         <label class="control-label">Eslogan o frease del local.</label >
-                                        <textarea class="form-control" rows="5" disabled>{{ $restaurante->description }}</textarea >
+                                        <textarea class="form-control" rows="5" disabled>{{ $company->description }}</textarea >
                                     </div>
                                 </div>
                             </div>
@@ -89,15 +86,14 @@
                                         <label>Descripción extensa del local</label>
                                         <div class="form-group label-floating">
                                             <label class="control-label">Descipción principal del sitio que administras.</label >
-                                            <textarea class="form-control" rows="5" disabled>{{ $restaurante->long_description }}</textarea >
+                                            <textarea class="form-control" rows="5" disabled>{{ $company->long_description }}</textarea >
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="{{ url('/admin/company/'.$restaurante->id.'/edit') }}" class="btn btn-primary pull-right">
+                            <a href="{{ url('/admin/company/'.$company->id.'/edit') }}" class="btn btn-primary pull-right">
                                 Editar
                             </a>
-                            @endforeach
                         </form>
                     </div>
                 </div>
@@ -106,9 +102,7 @@
                 <div class="card card-profile">
                     <div class="card-avatar">
                         <a href="{{ url('/') }} ">
-                            @foreach ($company as $restaurante)
-                            <img class="img" src="{{ $restaurante->url }}" />
-                            @endforeach
+                            <img class="img" src="{{ $company->url }}" />
                         </a>
                     </div>
                     <div class="content">

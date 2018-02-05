@@ -1,6 +1,5 @@
 <?php
 
-
 Route::get('/', 'IndexController@welcome');
 
 Auth::routes();
@@ -13,13 +12,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->namespace('Admin')->group
 	Route::get('/company/{id}/edit', 'CompanyController@edit'); //formulario
 	Route::post('/company/{id}/edit', 'CompanyController@update');// actualizar
 
-	// Route::get('/products', 'ProductController@index');//listado
-	// Route::get('/products/create', 'ProductController@create');//formulario
 	Route::post('/products', 'ProductController@store');// crear
 	Route::get('/products/{id}/edit', 'ProductController@edit');//formulario edicion
 	Route::post('/products/{id}/edit', 'ProductController@update');// actualizar
 	Route::delete('/products/{id}', 'ProductController@destroy');// actualizar
-	Route::get('/products/{id}', 'ProductController@select');//formulario edicion
+	Route::get('/products/{id}', 'ProductController@select');//favorito
 
 	Route::get('/categories', 'CategoryController@index');
 	Route::get('/categories/{id}/edit', 'CategoryController@edit');

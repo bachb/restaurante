@@ -21,8 +21,18 @@
     <script src="{{ asset('js/modernizr-2.8.3.min.js') }}"></script>   
 
 </head>
+<body>
+    @yield('content')
+</body>
 
-
-
+    <script crossorigin="anonymous" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" asyn src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+      window.jQuery || document.write("<script src='js/jquery-3.2.1.min.js'><\/script>")
+    </script>
+    <script asyn src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYJRlrlag1wwxCdQd3ZnluYUuNRPzLeeY"></script>
+    <script asyn src="{{ asset('dist/maps.js' )}}"></script>
+    <script asyn src="{{ asset('dist/form_object.js') }}"></script>
+    <script asyn src="{{ asset('dist/main.js') }}"></script>
+    <script asyn src="{{ asset('js/sweetalert2.min.js') }}"></script>
 </html>
 

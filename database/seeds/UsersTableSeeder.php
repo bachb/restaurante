@@ -14,13 +14,13 @@ class UsersTableSeeder extends Seeder
     {
         User::create([
         	'name' => 'Alexi Digital-Bit',
-            'email' => 'admin@correo.com',
+            'email' => 'digitalbit-admin@correo.com',
             'password' => bcrypt('123456'),
             'admin' => true
         ]);
         User::create([
             'name' => 'Al2',
-            'email' => 'bachb@correo.com',
+            'email' => 'digitalbit-user@correo.com',
             'password' => bcrypt('123456')
         ]);
     }

@@ -1,4 +1,7 @@
 @extends('layouts.admin')
+@foreach ($company as $rest)
+    @section('name-rest', $rest->name )
+@endforeach
 @section('category-active', 'active')
 
 @section('content')

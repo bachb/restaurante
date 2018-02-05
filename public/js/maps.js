@@ -43,7 +43,7 @@
 		marker.addListener('click', function() {
           infowindow.open(map, marker);
         });
-		const contentString = '<h1 class="dancing-script black-text center subtitle">{{ $restaurante->name }}</h1>'+'<p class="text-center black-text medium">Restaurante</p>'+'<h3><i class="glyphicon black-text glyphicon-earphone"></i> 313 2551075</h3>';
+		const contentString = '<h1 class="dancing-script black-text center subtitle"> Hola</h1>'+'<p class="text-center black-text medium">Restaurante</p>'+'<h3><i class="glyphicon black-text glyphicon-earphone"></i> 313 2551075</h3>';
 		const infowindow = new google.maps.InfoWindow({
 			content: contentString,
 		})	
@@ -87,7 +87,7 @@
 							.innerHTML = ` 
 								Estás a ${duracion_viaje} de la mejor experiencia 
 								para su paladar en <span class="dancing-script medium">
-								{{ $restaurante->name }}</span>
+								hola </span>
 							`
 				}
 			})	

@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
+use App\Company;
 class CategoryController extends Controller
 {
 	public function index()
     {
     	$categories = Category::all();
-    	return view('admin.categories.index')->with(compact('categories'));//listado
+        $company = Company::all();
+    	return view('admin.categories.index')->with(compact('categories', 'company'));//listado
     }
     public function store(Request $request)
     {
@@ -42,7 +44,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
     	$category =Category::find($id);
-        return view('admin.categories.edit')->with(compact('category'));//formulario de registro
+        $company = Company::all();
+        return view('admin.categories.edit')->with(compact('category', 'company'));//formulario de registro
     }
     public function update(Request $request, $id)
     {

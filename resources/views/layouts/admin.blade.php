@@ -34,6 +34,7 @@
     -->
             <div class="logo">
                 <a href="" class="simple-text">
+                    @yield('name-rest')
                 </a>               
             </div>
             <div class="sidebar-wrapper">
@@ -114,16 +115,6 @@
                             <li>
                             </li>
                         </ul>
-                        <form class="navbar-form navbar-right" role="search">
-                            <div class="form-group  is-empty">
-                                <input type="text" class="form-control" placeholder="Search">
-                                <span class="material-input"></span>
-                            </div>
-                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                                <i class="material-icons">search</i>
-                                <div class="ripple-container"></div>
-                            </button>
-                        </form>
                     </div>
                 </div>
         </nav>        
@@ -134,7 +125,6 @@
         </div>
      </div>
 </div>
-
 
 </body>
 <!--   Core JS Files   -->
@@ -155,8 +145,5 @@
 <script src="{{ asset('js/material-dashboard.js?v=1.2.0') }}"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('js/demo.js') }}"></script>
-
-
-
 </html>
 

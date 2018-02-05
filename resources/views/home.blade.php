@@ -1,8 +1,8 @@
 @extends('layouts.admin')
+@section('name-rest', $company->name )
 @section('menu-active', 'active')
 
 @section('content')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 @if ($errors->any())
 <div class="alert alert-danger col-md-12">
 <div class="container-fluid">
@@ -38,10 +38,7 @@
                     @else
                     <h4 class="title">Nuestro amplio menú para una variedad de gustos.</h4>
                     @endif
-                    
-                    @foreach ($company as $restaurante)
-                    <p class="category">Productos de {{ $restaurante->description }} </p>
-                    @endforeach
+                    <p class="category">Productos de {{ $company->description }} </p>
                 </div>
                 <div class="card-content table-responsive">
                     <table class="table" id="menu">
@@ -50,8 +47,10 @@
                             <th>Categoría</th>
                             <th>Descripción</th>
                             <th>Precio</th>
-                            <th>Orden</th>
+                             @if (auth()->user()->admin)
+                            <th>Orden</th>                            
                             <th>Opciones</th>
+                            @endif
                         </thead>
                         <tbody>
                             @foreach ($products as $product)
@@ -60,9 +59,10 @@
                                 <td>{{ $product->category ? $product->category->name : 'General' }}</td>
                                 <td>{{ $product->description }}</td>
                                 <td class="text-primary">{{ $product->price }}</td>
-                                <td class="text-primary">{{ $product->order }}</td>
+                                 @if (auth()->user()->admin)
+                                <td class="text-primary">{{ $product->order ? $product->order : '--' }}</td> @endif                          
                                 <td class="td-actions text-right">
-                                @if (auth()->user()->admin)
+                                @if (auth()->user()->admin)                                
                                 <form method="post" action="{{ url('/admin/products/'.$product->id) }}">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
@@ -86,10 +86,6 @@
                                         <i class="fa fa-image"></i>
                                         </a>
                                 </form>
-                                @else
-                                <a href="" rel="tooltip" title="ver" class="btn btn-danger btn-simple btn-xs">
-                                        <i class="material-icons">photo</i>
-                                </a>
                                 @endif
                                    
                                 </td>

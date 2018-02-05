@@ -7,14 +7,16 @@ use Illuminate\Http\Request;
 
 use App\Product;
 use App\ProductImage;
+use App\Company;
 use File;
 
 class ImageController extends Controller
 {
     public function index($id) {
     	$product = Product::find($id);
+        $company =Company::find(1);
     	$images = $product->images()->orderBy('featured', 'desc')->get();
-    	return view('admin.products.images.index')->with(compact('product','images'));
+    	return view('admin.products.images.index')->with(compact('product','images', 'company'));
     }
     public function store(Request $request, $id) {
     	//guardar la img en nuestro proyecto
